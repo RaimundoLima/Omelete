@@ -1,0 +1,15 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+<body>
+	<div class='container'>
+	<a href="alunos/cadastra" class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a>
+		{% for assunto in assuntos %}
+		<h3>
+			<p>{{ assunto.nome }}</p>
+			 <a href="admin/edit-assunto/{{assunto.id}}" class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
+			 <a href="admin/deleta/{{assunto.id}}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
+		</h3>
+		{% endfor %}
+	</div>
+</body>
+{% include 'footer.html' %}
