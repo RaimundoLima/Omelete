@@ -1,0 +1,17 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+<h3>{{acao}}</h3><br><br>
+<form action="/assunto/{{acao}}" method="POST">
+	<input hidden value='{{assunto.id}}' requiredid name="id">
+	<div class="input-field ">
+		<input value='{{assunto.nome}}' requiredid name="nome" type="text">
+		<label for="nome">Nome</label>
+		<br>
+	</div>
+	<br>
+    <button class="btn waves-effect waves-light red" type="submit">Enviar
+       <i class="material-icons right">send</i>
+    </button>
+</form>
+
+{% include 'footer.html' %}

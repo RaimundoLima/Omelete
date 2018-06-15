@@ -1,0 +1,30 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+<h3>{{acao}}</h3><br><br>
+<form action="/noticia/{{acao}}" method="POST">
+	<input hidden value='{{noticia.id}}' requiredid name="id">
+	<div class="input-field ">
+		<input value='{{noticia.titulo}}' requiredid name="titulo" type="text">
+		<label for="titulo">Titulo</label>
+		<br>
+	</div>
+	<div class="input-field ">
+		<select name='assunto'>
+			{% for assunto in assuntos %}
+				<option value='{{assunto.id}}'>{{assuton.nome}} </option>
+			{% endfor %}
+		</select>
+		<br>
+	</div>
+		<div class="input-field ">
+		<input value='{{noticia.texto}}' requiredid name="texto" type="text">
+		<label for="texto">Texto</label>
+		<br>
+	</div>
+	<br>
+    <button class="btn waves-effect waves-light red" type="submit">Enviar
+       <i class="material-icons right">send</i>
+    </button>
+</form>
+
+{% include 'footer.html' %}

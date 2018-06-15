@@ -1,0 +1,27 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+<h3>{{acao}}</h3><br><br>
+<form action="/jornalista/{{acao}}" method="POST">
+	<input hidden value='{{pessoa.id}}' requiredid name="id">
+	<div class="input-field ">
+		<input value='{{pessoa.login}}' requiredid name="login" type="text">
+		<label for="login">Login</label>
+		<br>
+	</div>
+	<div class="input-field ">
+		<input value='{{pessoa.senha}}' requiredid name="senha" type="password">
+		<label for="senha">Senha</label>
+		<br>
+	</div>
+	<div class="input-field ">
+		<input value='{{pessoa.nome}}' requiredid name="nome" type="text">
+		<label for="nome">Nome</label>
+		<br>
+	</div>
+	<br>
+    <button class="btn waves-effect waves-light red" type="submit">Enviar
+       <i class="material-icons right">send</i>
+    </button>
+</form>
+
+{% include 'footer.html' %}

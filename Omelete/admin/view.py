@@ -1,7 +1,7 @@
 from flask import *
 
-mod=Blueprint('admin',__name__,template_folder='templates')
+admin=Blueprint('admin',__name__,template_folder='templates',static_folder = 'static'))
 
-@mod.route('/')
+@admin.route('/')
 def index():
 	return render_template('admin/index.html')

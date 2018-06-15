@@ -1,0 +1,37 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+<body>
+	<div class='container'>
+		{% for noticia in noticias %}
+		<div id='noticia{{noticia.id}}'>
+			<div>
+				<h3><a  href='noticia/{{noticia.id}}'> {{noticia.assunto}}-{{ noticia.titulo }}-{{noticia.datapublicacao}}</a></h3>
+				<p>{{noticia.texto}} </p>
+				<br>
+			</div>
+			<ul>
+				{% for comentario in noticia.comentario %}
+					<li><b>{{ comentario.pessoa.nome }}<b></li>
+					<ul>
+						<li><div id='editavel{{comenario.id}}'>
+							{{comentario.texto}}  {{comenario.datacomentario}}
+						</div>
+						{% if comentario.pessoa.id == pessoa.id %} 
+							<a onclick="editavel({{comentario.id}})" class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
+							<a href="comentario/delete/{{comentario.id}}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> 
+						{% endif %}
+						</li>
+					</ul>
+				{% endfor %}
+				<form method='POST' action='comentario/comenta'>
+					<input value='{{noticia.id}}' hidden name='idnoticia'>
+					<input value='{{pessoa.id}}'  hidden name='idpessoa'>
+					<input name='texto' placeholder="faça um comentario" type='text'>
+					<button type='submit'>
+				<form>
+			</ul>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+{% include 'footer.html' %}

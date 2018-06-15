@@ -4,6 +4,8 @@
 M.AutoInit();
 M.updateTextFields();
 $(document).ready(function(){
-$('.datepicker').datepicker();
+	function editavel(id){
+		$('#editavel'+'id').innerHTML="<form method='POST' action='comentario/edita/id' ><input type='text' ><button type='submit'></form>"
+	}
 });
 </script>

@@ -1,0 +1,29 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+<body>
+	<div class='container'>
+		{% for noticia in noticias %}
+		<div id='noticia{{noticia.id}}'>
+			<div>
+				<h3><a  href='noticia/{{noticia.id}}'> {{noticia.assunto}}-{{ noticia.titulo }}-{{noticia.datapublicacao}}</a>
+				<a href="comentario/edita/{{comentario.id}}" class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
+				<a href="comentario/delete/{{comentario.id}}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> 
+				</h3>
+				<p>{{noticia.texto}} </p>
+				<br>
+			</div>
+			<ul>
+				{% for comentario in noticia.comentario %}
+					<li><b>{{ comentario.pessoa.nome }}<b></li>
+					<ul>
+						<li>
+							{{comentario.texto}}  {{comenario.datacomentario}}
+							<a href="comentario/delete/{{comentario.id}}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> 
+						</li>
+					</ul>
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+</body>
+{% include 'footer.html' %}
